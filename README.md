@@ -10,7 +10,12 @@ Virtual Box.
 [Vagrant](https://www.vagrantup.com/downloads.html)
 
 Once both of those are installed you must download Udacity's Vagrant environment
- available [here](https://github.com/udacity/fullstack-nanodegree-vm).
+available [here](https://github.com/udacity/fullstack-nanodegree-vm).
+
+Lastly, you can downloaded the SQL data used for the script's analysis from
+[here](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip).
+
+Extract this file inside of the "catalog" folder.
 
 Once those have been downloaded, you must install the virtual environment.
 To install the environment go to the location in your **terminal** where you
