@@ -4,10 +4,12 @@ from datetime import datetime
 DB_NAME = "news"
 
 ################################################################################
-#####       Completed functions
+# Completed functions
 ################################################################################
 
 # This method returns the top 3 articles ordered by number of views
+
+
 def get_top_articles():
     db = psycopg2.connect(database=DB_NAME)
     c = db.cursor()
@@ -22,6 +24,8 @@ def get_top_articles():
     db.close()
 
 # This method returns all authors ordered by the sum of their article views
+
+
 def get_authors_views():
     db = psycopg2.connect(database=DB_NAME)
     c = db.cursor()
@@ -35,6 +39,8 @@ def get_authors_views():
     db.close()
 
 # This method returns the total article view count by date
+
+
 def get_articles_count():
     db = psycopg2.connect(database=DB_NAME)
     c = db.cursor()
@@ -47,6 +53,8 @@ def get_articles_count():
     db.close()
 
 # This metho returns all of the article views that had errors by date
+
+
 def get_errors_count():
     db = psycopg2.connect(database=DB_NAME)
     c = db.cursor()
@@ -61,18 +69,21 @@ def get_errors_count():
 # This function combines the get_errors_count list and the get_articles_count
 # functions and does the data analysis on them, then prints where the total
 # errors were higher than 1% for a given date
+
+
 def error_data(list1, list2):
     q = zip(list1, list2)
     for i in q:
         error_percent = (float(i[0][0]) / i[1][0]) * 100
         if error_percent > 1:
-            date = datetime.strptime(str(i[0][1]), "%Y-%m-%d").strftime("%d %b, %Y")
+            date = datetime.strptime(
+                str(i[0][1]), "%Y-%m-%d").strftime("%d %b, %Y")
             error_formatted = str(error_percent)[:3]
             return("{} -- {}% errors".format(date, error_formatted))
 
 
 ################################################################################
-#####       Testing area
+# Testing area
 ################################################################################
 
 if __name__ == '__main__':
