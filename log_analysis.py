@@ -31,8 +31,9 @@ def get_top_articles():
                 ORDER BY count(path) DESC
                 LIMIT 3
                 """)
-    return c.fetchall()
     db.close()
+    return c.fetchall()
+
 
 # This method returns all authors ordered by the sum of their article views
 
@@ -45,8 +46,9 @@ def get_authors_views():
                     WHERE  log.status LIKE '200%'
                     GROUP BY authors.name
                     ORDER BY COUNT(log.path) DESC""")
-    return c.fetchall()
     db.close()
+    return c.fetchall()
+
 
 
 # This method returns all of the article views that had errors by date and
@@ -62,8 +64,8 @@ def get_errors_count():
                 GROUP BY DATE(time)
                 ORDER BY DATE(time)
                 """)
-    return c.fetchall()
     db.close()
+    return c.fetchall()
 
 # This function combines the get_errors_count list and the get_articles_count
 # functions and does the data analysis on them, then prints where the total
